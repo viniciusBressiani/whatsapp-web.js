@@ -54,8 +54,7 @@ client.on('message', async msg => {
         // simulates typing in the chat
         chat.sendStateTyping();
         // Send a welcome msg
-        setTimeout(() => msg.reply(`Ola, seja muito bem-vindo a ESCM!
-        Logo você receberá uma mensagem do número xxxx do responsável pelos cursos`), 2000);
+        setTimeout(() => msg.reply(`Olá, seja muito bem-vindo a ESCM! Logo o responsável pelo seu atendimento entrará em contato através do número 47 92001-4644.`), 2000);
         // Direct send a new message to specific id
         let contact = await msg.getContact();
         let contactNumber = await contact.getFormattedNumber();
