@@ -49,7 +49,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async msg => {
-    if (msg.body.startsWith('seuloco')) {
+    if (msg.body) {
         const chat = await msg.getChat();
         // simulates typing in the chat
         chat.sendStateTyping();
