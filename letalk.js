@@ -17,9 +17,9 @@ const client = new Client({
     // proxyAuthentication: { username: 'username', password: 'password' },
     puppeteer: { 
         // args: ['--proxy-server=proxy-server-that-requires-authentication.example.com'],
-        headless: true,
+        
         puppeteer: {
-            args: ['--no-sandbox'],
+            args: ['--no-sandbox','--disable-setuid-sandbox'],
         }
     }
 });
@@ -50,7 +50,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async msg => {
-    if (msg) {
+    if (msg.body.startsWith('seuloco')) {
         const chat = await msg.getChat();
         // simulates typing in the chat
         chat.sendStateTyping();
