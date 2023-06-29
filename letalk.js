@@ -2,7 +2,7 @@ const { Client,  LocalAuth } = require('./index');
 const axios = require('axios');
 const qrcode = require('qrcode-terminal');
 
-const sendToletalk = (number) => axios.post("https://webhook.letalk.com.br/5e9c2b78-073f-4ba9-8063-a51b685cc745",
+const sendToletalk = (number) => axios.post("https://webhook.letalk.com.br/813aa2c0-4c1d-4be4-88ef-9295a69132e7",
     {
         "contact": {
         "phone": "\"" + number +"\"",
@@ -55,7 +55,7 @@ client.on('message', async msg => {
         chat.sendStateTyping();
         // Send a welcome msg
         setTimeout(() => msg.reply(`Ola, seja muito bem-vindo a ESCM!
-                   Logo você receberá uma mensagem do número xxxx do responsável pelos cursos`), 2000);
+        Logo você receberá uma mensagem do número xxxx do responsável pelos cursos`), 2000);
         // Direct send a new message to specific id
         let contact = await msg.getContact();
         let contactNumber = await contact.getFormattedNumber();
