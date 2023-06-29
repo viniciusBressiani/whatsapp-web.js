@@ -1,5 +1,6 @@
 const { Client,  LocalAuth } = require('./index');
 const axios = require('axios');
+const qrcode = require('qrcode-terminal');
 
 const sendToletalk = (number) => axios.post("https://webhook.letalk.com.br/5e9c2b78-073f-4ba9-8063-a51b685cc745",
     {
@@ -16,7 +17,10 @@ const client = new Client({
     // proxyAuthentication: { username: 'username', password: 'password' },
     puppeteer: { 
         // args: ['--proxy-server=proxy-server-that-requires-authentication.example.com'],
-        headless: false
+        headless: true,
+        puppeteer: {
+            args: ['--no-sandbox'],
+        }
     }
 });
 
@@ -29,6 +33,7 @@ client.on('loading_screen', (percent, message) => {
 client.on('qr', (qr) => {
     // NOTE: This event will not be fired if a session is specified.
     console.log('QR RECEIVED', qr);
+    qrcode.generate(qr, {small: true});
 });
 
 client.on('authenticated', () => {
