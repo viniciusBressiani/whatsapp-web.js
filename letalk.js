@@ -16,11 +16,10 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     // proxyAuthentication: { username: 'username', password: 'password' },
     puppeteer: { 
+        args: ['--no-sandbox','--disable-setuid-sandbox']
         // args: ['--proxy-server=proxy-server-that-requires-authentication.example.com'],
         
-        puppeteer: {
-            args: ['--no-sandbox','--disable-setuid-sandbox'],
-        }
+        
     }
 });
 
